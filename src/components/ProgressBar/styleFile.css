@@ -1,0 +1,90 @@
+.progressBar {
+  display: flex;
+  margin: 20px 0;
+  user-select: none;
+  gap: 8px;
+}
+.progressBar .step {
+  position: relative;
+  text-align: end;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.progressBar .step p {
+  font-size: 11px;
+  font-weight: 500;
+  color: #c1baba;
+  text-transform: capitalize;
+  /* margin-bottom: 8px; */
+  transition: 0.2s;
+  /* text-align: center; */
+  /* position: relative; */
+  /* margin-left: -6px; */
+  position: absolute;
+  width: max-content;
+  /* transition: tra; */
+  transform: translateX(-24%);
+}
+.progressBar .step .bullet {
+  height: 26px;
+  width: 28px;
+  border: 1px solid #c1baba;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 27px;
+  position: relative;
+  background: #c1baba;
+}
+.rounded {
+  color: #5e5858;
+}
+.progressBar .step .bullet.selected {
+  border-color: #f26323;
+  background: #f26323;
+}
+.progressBar .step .bullet span {
+  position: relative;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.step .bar {
+  height: 3px;
+  width: 100%;
+  position: relative;
+  top: 11px;
+  background: #eee;
+}
+.bullet.selected {
+  background: #f26323;
+  border: 1px solid #f26323;
+}
+
+.rounded.selected {
+  color: #fff;
+}
+
+.step .bar.selected {
+  background: #f26323;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+.progressBar .step:last-child .bullet {
+  display: none;
+}
+.progressBar .step p.selected {
+  color: #f26323;
+  transition: 0.2s linear;
+}
