@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './styleFile.css'
+import './ProgressBar.style'
 
 export class ProgressBar extends Component {
   constructor(props) {
@@ -80,24 +80,64 @@ export class ProgressBar extends Component {
   render() {
     const stepsDisplay = this?.state?.newStep?.map((step, index) => {
       return (
-        <div key={index} className='step'>
-          <div className={`bar ${step.selected && 'selected'}`}></div>
-          <div className={`bullet ${step.selected && 'selected '}`}>
-            <div className={`rounded ${step.selected && 'selected '}`}>
+        <div key={index} block='ProgressBar' elem='Step'>
+          <div
+            block='ProgressBar'
+            elem='Bar'
+            mods={{ isSelected: step.selected }}
+          ></div>
+          <div
+            block='ProgressBar'
+            elem='Bullet'
+            mods={{ isSelected: step.selected }}
+          >
+            <div
+              block='ProgressBar'
+              elem='Rounded'
+              mods={{ isSelected: step.selected }}
+            >
               {step.completed ? (
-                <span className='tspan'>&#10003;</span>
+                <span>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    xmlnsXlink='http://www.w3.org/1999/xlink'
+                    version='1.1'
+                    id='Capa_1'
+                    x='0px'
+                    y='0px'
+                    width='78.369px'
+                    height='78.369px'
+                    viewBox='0 0 78.369 78.369'
+                    xmlSpace='preserve'
+                  >
+                    <g>
+                      <path
+                        fill='#ffffff'
+                        d='M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704   c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704   C78.477,17.894,78.477,18.586,78.049,19.015z'
+                      />
+                    </g>
+                  </svg>
+                </span>
               ) : (
                 index + 1
               )}
             </div>
-            <p className={`text-down ${step.selected && 'selected'}`}>
+            <p
+              block='ProgressBar'
+              elem='TextDown'
+              mods={{ isSelected: step.selected }}
+            >
               {step.description}
             </p>
           </div>
         </div>
       )
     })
-    return <div className='progressBar'>{stepsDisplay}</div>
+    return (
+      <div block='ProgressBar' aria-label='Progress Bar'>
+        {stepsDisplay}
+      </div>
+    )
   }
 }
 

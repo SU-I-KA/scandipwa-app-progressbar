@@ -1,16 +1,16 @@
 import { Checkout as SourceCheckout } from 'SourceRoute/Checkout/Checkout.component'
 
 import ProgressBar from 'Src/components/ProgressBar/ProgressBar.component'
-import ContentWrapper from '@scandipwa/scandipwa/src/component/ContentWrapper'
+import ContentWrapper from 'SourceComponent/ContentWrapper'
 
-const SHIPPING_STEP = 'SHIPPING_STEP'
-const BILLING_STEP = 'BILLING_STEP'
-const DETAILS_STEP = 'DETAILS_STEP'
+import {
+  BILLING_STEP,
+  DETAILS_STEP,
+  SHIPPING_STEP,
+} from 'SourceRoute/Checkout/Checkout.config'
 
 /** @namespace ScandipwaApp/Route/Checkout/Component */
 export class CheckoutComponent extends SourceCheckout {
-  // TODO implement logic
-
   renderProgressBar = () => {
     const steps = [
       {

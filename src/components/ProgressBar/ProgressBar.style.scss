@@ -1,0 +1,107 @@
+:root {
+  --progressBar-bg-color: var(--primary-base-color);
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.ProgressBar {
+  display: flex;
+  padding: 0 0 40px;
+  user-select: none;
+  gap: 8px;
+  background: #eee;
+
+  &-Step {
+    position: relative;
+    text-align: end;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+
+    &:last-child {
+      .ProgressBar-Bullet {
+        display: none;
+      }
+    }
+  }
+
+  &-TextDown {
+    font-size: 12px;
+    font-weight: bold;
+    color: #adadad;
+    text-transform: capitalize;
+    transition: 0.2s;
+    position: absolute;
+    width: max-content;
+    transform: translateX(-30%);
+    padding-top: 1px;
+
+    &_isSelected {
+      color: #272727;
+      transition: 0.2s linear;
+    }
+  }
+
+  &-Bullet {
+    height: 26px;
+    width: 28px;
+    border: 1px solid #dbdbdb;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    transition: 0.2s;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 27px;
+    position: relative;
+    background: #dbdbdb;
+
+    &_isSelected {
+      border: 1px solid var(--progressBar-bg-color);
+      background: var(--progressBar-bg-color);
+    }
+
+    span {
+      position: relative;
+      text-align: center;
+      transform: translateX(-50%);
+
+      svg {
+        width: 59%;
+        height: 100%;
+        position: relative;
+        top: 1.5px;
+        left: 0.2px;
+      }
+    }
+  }
+
+  &-Rounded {
+    color: #9c9c9c;
+    font-weight: 600;
+
+    &_isSelected {
+      color: #fff;
+    }
+  }
+
+  &-Bar {
+    height: 3px;
+    width: 100%;
+    position: relative;
+    top: 11px;
+    background: #dbdbdb;
+
+    &_isSelected {
+      background: var(--progressBar-bg-color);
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: animate 0.3s linear forwards;
+    }
+  }
+}
